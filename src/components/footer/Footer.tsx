@@ -3,8 +3,8 @@ import { perks } from "./Items";
 
 export default function Footer() {
   return (
-    <footer className="item start w-full max-w-full border-t border-border bg-accent px-6 py-5">
-      <div className="flex w-max flex-col items-center gap-5 ">
+    <footer className="w-screen max-w-full border-t border-border bg-accent px-6 py-5">
+      <section className="flex flex-col gap-5 sm:w-max ">
         {perks.map((perk) => (
           <Perks
             key={perk.id}
@@ -13,7 +13,7 @@ export default function Footer() {
             name={perk.name}
           />
         ))}
-      </div>
+      </section>
     </footer>
   );
 }

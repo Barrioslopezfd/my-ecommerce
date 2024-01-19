@@ -8,14 +8,20 @@ type items = {
 
 export default function Perks({ Icon, description, name }: items) {
   return (
-    <div className="text-center">
+    <div className="sm:flex sm:gap-2">
       <div className="flex justify-center md:flex-shrink-0">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-muted-foreground text-primary-foreground">
-          <Icon />
+        <div className="flex size-10 items-center justify-center rounded-full bg-muted-foreground text-primary-foreground sm:size-16">
+          <Icon className="size-5 sm:size-7" />
         </div>
       </div>
-      <h3 className="font-medium text-primary">{name}</h3>
-      <p className="text-sm text-muted-foreground">{description}</p>
+      <div className="self-center text-center sm:text-left">
+        <h3 className="text-sm font-medium text-primary sm:text-[1rem]">
+          {name}
+        </h3>
+        <p className="text-xs text-muted-foreground sm:text-[0.875rem]">
+          {description}
+        </p>
+      </div>
     </div>
   );
 }

@@ -11,9 +11,9 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 flex h-16 w-4/5 items-center justify-around border-b bg-background p-3 px-2.5 md:px-20">
+    <header className="sticky top-0 z-50 flex h-16 w-4/5 items-center justify-around border-b bg-background px-20">
       {/* TODO: Navbar para moviles */}
-      <Link href="/ ">
+      <Link href="/ " className="pb-53 self-start">
         <Icons.logo className="size-20 lg:size-14" />
       </Link>
       <nav className="z-50 hidden lg:block">
