@@ -5,27 +5,27 @@ import { webpackBundler } from "@payloadcms/bundler-webpack";
 import path from "path";
 
 export default buildConfig({
-    serverURL: process.env.NEXT_PUBLIC_SERVER_URL || '',
-    collections: [],
-    routes: {
-        admin: '/sell',
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
+  collections: [],
+  routes: {
+    admin: "/sell",
+  },
+  admin: {
+    bundler: webpackBundler(),
+    meta: {
+      titleSuffix: "Admin",
+      favicon: "/favicon.ico",
+      ogImage: "/images/logo.png",
     },
-    admin: {
-        bundler: webpackBundler(),
-        meta: {
-            titleSuffix: 'Admin',
-            favicon: '/favicon.ico',
-            ogImage: '/images/logo.png',
-        }
-    },
-    rateLimit: {
-        max: 2000, // TODO: temporal
-    },
-    editor: slateEditor({}),
-    db: mongooseAdapter({
-        url: process.env.MONGODB_URL!,
-    }),
-    typescript: {
-        outputFile: path.resolve(__dirname, 'payload-types.ts'),
-    }
+  },
+  rateLimit: {
+    max: 2000, // TODO: temporal
+  },
+  editor: slateEditor({}),
+  db: mongooseAdapter({
+    url: process.env.MONGODB_URL!,
+  }),
+  typescript: {
+    outputFile: path.resolve(__dirname, "payload-types.ts"),
+  },
 });

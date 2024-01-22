@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
@@ -7,5 +7,5 @@
     "noEmit": false,
     "jsx": "react"
   },
-  "include": ["src/server.ts", "srs/payload.config.ts"]
+  "include": ["src/server/server.ts", "srs/server/payload.config.ts"]
 }
