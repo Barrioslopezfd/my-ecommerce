@@ -14,7 +14,7 @@ export default buildConfig({
     bundler: webpackBundler(),
     meta: {
       titleSuffix: "Admin",
-      favicon: "/favicon.ico",
+      favicon: "/icon.ico",
       ogImage: "/images/logo.png",
     },
   },
