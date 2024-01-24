@@ -1,9 +1,10 @@
 import next from "next";
 
+const dev = process.env.NODE_ENV !== "production";
 const PORT = Number(process.env.PORT) || 3000;
 
 export const nextApp = next({
-  dev: process.env.NODE_ENV !== "production",
+  dev: dev,
   port: PORT,
 });
 

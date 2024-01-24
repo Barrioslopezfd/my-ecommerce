@@ -1,13 +1,11 @@
-import dotenv from "dotenv";
-import path from "path";
-import payload, { Payload } from "payload";
+import payload from "payload";
 import type { InitOptions } from "payload/config";
-
-dotenv.config({
-  path: path.resolve(__dirname, "../../.env"),
-});
+import * as dotenv from "dotenv";
+dotenv.config();
 
 let cached = (global as any).payload;
+
+const secret = process.env.PAYLOAD_SECRET!;
 
 if (!cached) {
   cached = (global as any).payload = {
@@ -20,10 +18,8 @@ type Args = {
   initOptions?: Partial<InitOptions>;
 };
 
-export const getPayloadClient = async ({
-  initOptions,
-}: Args = {}): Promise<Payload> => {
-  if (!process.env.PAYLOAD_SECRET) {
+export const getPayloadClient = async ({ initOptions }: Args = {}) => {
+  if (!secret) {
     throw new Error("PAYLOAD_SECRET is not set");
   }
   if (cached.client) {
@@ -32,7 +28,7 @@ export const getPayloadClient = async ({
 
   if (!cached.promise) {
     cached.promise = payload.init({
-      secret: process.env.PAYLOAD_SECRET,
+      secret: secret,
       local: initOptions?.express ? false : true,
       ...(initOptions || {}),
     });
