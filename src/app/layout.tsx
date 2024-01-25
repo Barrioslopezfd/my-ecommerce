@@ -5,6 +5,7 @@ import Footer from "@/components/footer/Footer";
 import { cn } from "@/lib/utils";
 import Header from "@/components/navbar/Header";
 import { Providers } from "@/components/Providers";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,8 @@ export default function RootLayout({
           {children}
           <Footer />
         </Providers>
+
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );

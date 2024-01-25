@@ -1,11 +1,20 @@
 import payload, { Payload } from "payload";
 import type { InitOptions } from "payload/config";
+import { createTransport } from "nodemailer";
 import dotenv from "dotenv";
 dotenv.config();
 
-let cached = (global as any).payload;
+const transporter = createTransport({
+  host: "smtp.resend.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: "resend",
+    pass: process.env.RESEND_API_KEY,
+  },
+});
 
-const secret = process.env.PAYLOAD_SECRET!;
+let cached = (global as any).payload;
 
 if (!cached) {
   cached = (global as any).payload = {
@@ -21,7 +30,7 @@ type Args = {
 export const getPayloadClient = async ({
   initOptions,
 }: Args = {}): Promise<Payload> => {
-  if (!secret) {
+  if (!process.env.PAYLOAD_SECRET) {
     throw new Error("PAYLOAD_SECRET is not set");
   }
   if (cached.client) {
@@ -30,7 +39,12 @@ export const getPayloadClient = async ({
 
   if (!cached.promise) {
     cached.promise = payload.init({
-      secret: secret,
+      email: {
+        transport: transporter,
+        fromAddress: "onboarding@resend.dev",
+        fromName: "H&M",
+      },
+      secret: process.env.PAYLOAD_SECRET,
       local: initOptions?.express ? false : true,
       ...(initOptions || {}),
     });
