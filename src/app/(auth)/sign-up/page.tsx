@@ -6,9 +6,8 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import z from "zod";
 import {
-  credentials,
+  type credentials,
   credentialsValidator,
 } from "@/lib/validators/account-credentials-validator";
 
@@ -19,7 +18,9 @@ export default function SignUp() {
     formState: { errors },
   } = useForm<credentials>({ resolver: zodResolver(credentialsValidator) });
 
-  const onSubmit = ({ email, password }: credentials) => {};
+  const onSubmit = ({ email, password }: credentials) => {
+    // Send to server
+  };
 
   return (
     <>
