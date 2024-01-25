@@ -1,6 +1,6 @@
-import payload from "payload";
+import payload, { Payload } from "payload";
 import type { InitOptions } from "payload/config";
-import * as dotenv from "dotenv";
+import dotenv from "dotenv";
 dotenv.config();
 
 let cached = (global as any).payload;
@@ -18,7 +18,9 @@ type Args = {
   initOptions?: Partial<InitOptions>;
 };
 
-export const getPayloadClient = async ({ initOptions }: Args = {}) => {
+export const getPayloadClient = async ({
+  initOptions,
+}: Args = {}): Promise<Payload> => {
   if (!secret) {
     throw new Error("PAYLOAD_SECRET is not set");
   }

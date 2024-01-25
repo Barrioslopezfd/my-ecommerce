@@ -10,16 +10,22 @@ import {
   type credentials,
   credentialsValidator,
 } from "@/lib/validators/account-credentials-validator";
+import { trpc } from "@/trpc/client";
 
 export default function SignUp() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<credentials>({ resolver: zodResolver(credentialsValidator) });
+  } = useForm<credentials>({
+    resolver: zodResolver(credentialsValidator),
+  });
+
+  const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({});
 
   const onSubmit = ({ email, password }: credentials) => {
     // Send to server
+    mutate({ email, password });
   };
 
   return (
@@ -71,6 +77,9 @@ export default function SignUp() {
                     className="block w-full rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     placeholder="Password"
                   />
+                  {errors.password && (
+                    <p className="text-red-500">{errors.password.message}</p>
+                  )}
                 </div>
 
                 <Button>Sign Up</Button>
