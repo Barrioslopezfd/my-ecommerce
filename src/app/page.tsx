@@ -5,11 +5,10 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="flex w-screen max-w-5xl flex-1 flex-grow flex-col items-center bg-background py-20 text-center">
-      <h1 className="text-4xl font-bold tracking-tight text-primary md:text-6xl ">
-        Be yourself <span className="text-muted-foreground">&</span> Your best
-        self
+      <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl ">
+        <p>Feel free to wear</p> <p>as you see fit</p>
       </h1>
-      <p className="mt-6 max-w-prose text-muted-foreground md:text-lg">
+      <p className="mt-6 max-w-prose text-muted-foreground sm:text-lg">
         Welcome to Style! Your satisfaction is our main drive.
       </p>
       <div className="mt-6 flex flex-col gap-4 sm:flex-row">
