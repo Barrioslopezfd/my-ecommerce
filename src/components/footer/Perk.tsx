@@ -9,7 +9,7 @@ type items = {
 export default function Perks({ Icon, description, name }: items) {
   return (
     <div className="sm:flex sm:gap-2">
-      <div className="flex justify-center md:flex-shrink-0">
+      <div className="flex justify-center lg:flex-shrink-0">
         <div className="flex size-10 items-center justify-center rounded-full bg-muted-foreground text-primary-foreground sm:size-16">
           <Icon className="size-5 sm:size-7" />
         </div>
