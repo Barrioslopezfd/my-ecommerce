@@ -1,5 +1,3 @@
-"on client";
-
 import { PRODUCT_CATEGORIES } from "@/config";
 import { Button } from "../ui/button";
 import { ChevronDown } from "lucide-react";
@@ -8,12 +6,12 @@ import Link from "next/link";
 
 type Category = (typeof PRODUCT_CATEGORIES)[number];
 
-interface NavItemProps {
+type NavItemProps = {
   category: Category;
   handleOpen: () => void;
   isOpen: boolean;
   isAnyOpen: boolean;
-}
+};
 
 export default function NavItem({
   category,
@@ -39,33 +37,23 @@ export default function NavItem({
       </div>
 
       {isOpen ? (
-        <div
+        <span
           className={cn(
-            "absolute inset-x-0 top-full text-sm text-muted-foreground",
+            "absolute top-full text-sm text-muted-foreground shadow-xl",
             { "animate-in fade-in-10 slide-in-from-top-5": !isAnyOpen },
           )}
         >
-          <div
-            className="absolute inset-0 top-1/2 bg-white shadow"
-            aria-hidden="true"
-          />
-
-          <div className="relative bg-white shadow">
-            <div className="mx-auto max-w-7xl px-8">
-              <div className="grid grid-cols-4 gap-x-8 gap-y-10 py-16">
-                <div className="col-span-4 col-start-1 grid grid-cols-4 gap-x-8">
-                  {category.featured.map((x) => (
-                    <div key={x.name} className="relative text-base sm:text-sm">
-                      <div className="relative aspect-auto rounded-lg text-base font-semibold group-hover:opacity-75">
-                        <Link href={x.href}>{x.name}</Link>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          <menu className="relative grid grid-cols-2 gap-x-8 gap-y-8 bg-slate-300 px-8 py-8 shadow-xl">
+            {category.featured.map((x) => (
+              <li
+                key={x.name}
+                className="relative aspect-auto rounded-lg text-base font-semibold group-hover:opacity-75 sm:text-sm"
+              >
+                <Link href={x.href}>{x.name}</Link>
+              </li>
+            ))}
+          </menu>
+        </span>
       ) : null}
     </div>
   );
