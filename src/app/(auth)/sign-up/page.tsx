@@ -26,7 +26,7 @@ export default function SignUp() {
 
   const router = useRouter();
 
-  const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
+  const { mutate } = trpc.auth.createPayloadUser.useMutation({
     onError: (err) => {
       if (err.data?.code === "CONFLICT") {
         toast.error("This email is already in use. Sign in instead.");
@@ -47,7 +47,6 @@ export default function SignUp() {
   });
 
   const onSubmit = ({ email, password }: credentials) => {
-    // Send to server
     mutate({ email, password });
   };
 
@@ -80,13 +79,16 @@ export default function SignUp() {
                     Email
                   </label>
                   <input
-                    {...register("email", { required: true })}
                     type="email"
-                    name="email"
                     id="email"
+                    autoComplete="email"
+                    {...register("email", { required: true })}
                     className="block w-full rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     placeholder="you@example.com"
                   />
+                  {errors.email && (
+                    <p className="text-red-500">{errors.email.message}</p>
+                  )}
                 </div>
                 <div className="grid gap-1 py-2">
                   <label htmlFor="password" className="block">
@@ -95,7 +97,6 @@ export default function SignUp() {
                   <input
                     {...register("password", { required: true })}
                     type="password"
-                    name="password"
                     id="password"
                     className="block w-full rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     placeholder="Password"
