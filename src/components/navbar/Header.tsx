@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { Icons } from "../Icons";
 import NavItems from "./NavItems";
-import { buttonVariants } from "../ui/button";
+import { buttonVariants } from "../ui/Button";
 import Cart from "./Cart";
+import { getServerSideUser } from "@/lib/payload-utils";
+import { cookies } from "next/headers";
 
-export default function Header() {
-  const user = 0;
-  {
-    /* TODO: VER QUE ONDA USUARIO Y LINEA 30 */
-  }
+export default async function Header() {
+  const nextCookie = cookies();
+  const { user } = await getServerSideUser(nextCookie);
 
   return (
     <header className="lg:sticky lg:top-0 lg:z-50 lg:flex lg:h-16 lg:w-4/5 lg:justify-between lg:border-b lg:bg-background ">
