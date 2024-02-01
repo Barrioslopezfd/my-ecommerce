@@ -1,5 +1,5 @@
 import { PRODUCT_CATEGORIES } from "@/config";
-import { Button } from "../ui/button";
+import { Button } from "../ui/Button";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";

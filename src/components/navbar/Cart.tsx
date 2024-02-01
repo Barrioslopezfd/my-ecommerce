@@ -8,10 +8,10 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "../ui/sheet";
+} from "../ui/Sheet";
 import { formatPrice } from "@/lib/utils";
 import Link from "next/link";
-import { buttonVariants } from "../ui/button";
+import { buttonVariants } from "../ui/Button";
 import Image from "next/image";
 
 export default function Cart() {
