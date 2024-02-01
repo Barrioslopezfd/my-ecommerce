@@ -1,5 +1,5 @@
 import { MailCheck } from "lucide-react";
-import VerifyEmail from "@/components/VerifyEmail";
+import VerifyEmail from "@/components/navbar/VerifyEmail";
 
 type PageProps = {
   searchParams: {

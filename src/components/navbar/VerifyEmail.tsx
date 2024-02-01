@@ -3,7 +3,7 @@
 import { trpc } from "@/trpc/client";
 import { CheckCircle2, Loader2, XCircle } from "lucide-react";
 import Link from "next/link";
-import { buttonVariants } from "./ui/Button";
+import { buttonVariants } from "../ui/Button";
 
 type VerifyEmailProps = {
   token: string;
