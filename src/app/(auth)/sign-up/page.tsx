@@ -1,7 +1,7 @@
 "use client";
 
 import { Icons } from "@/components/Icons";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
