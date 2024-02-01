@@ -8,7 +8,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "", // TODO: CHECK LATER hnstly duno what td wth ths || "",
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "", // TODO: CHECK LATER
   collections: [Users],
   routes: {
     admin: "/sell",
