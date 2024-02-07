@@ -3,13 +3,15 @@ import { buildConfig } from "payload/config";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 import path from "path";
+import { Products } from "./src/collections/Products/Products";
 import { Users } from "./src/collections/Users";
+import { Media } from "./src/collections/Media";
 import dotenv from "dotenv";
 dotenv.config();
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "", // TODO: CHECK LATER
-  collections: [Users],
+  collections: [Users, Products, Media],
   routes: {
     admin: "/sell",
   },
