@@ -7,6 +7,7 @@ import { useOnClickOutside } from "@/hooks/useOnClickOutside";
 
 export default function NavItems() {
   const [activeIndex, setActiveIndex] = useState<null | number>(null);
+
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -20,8 +21,11 @@ export default function NavItems() {
       document.removeEventListener("keydown", handler);
     };
   }, []);
+
   const isAnyOpen = activeIndex !== null;
+
   const navRef = useRef<HTMLDivElement | null>(null);
+
   useOnClickOutside(navRef, () => setActiveIndex(null));
 
   return (
@@ -35,12 +39,15 @@ export default function NavItems() {
           }
         };
 
+        const close = () => setActiveIndex(null);
+
         const isOpen = i === activeIndex;
 
         return (
           <NavItem
-            handleOpen={handleOpen}
             category={category}
+            close={close}
+            handleOpen={handleOpen}
             isOpen={isOpen}
             key={category.value}
             isAnyOpen={isAnyOpen}

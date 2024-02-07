@@ -5,6 +5,7 @@ import { buttonVariants } from "../ui/Button";
 import Cart from "./Cart";
 import { getServerSideUser } from "@/lib/payload-utils";
 import { cookies } from "next/headers";
+import UserAccountNav from "./UserAccountNav";
 
 export default async function Header() {
   const nextCookie = cookies();
@@ -27,7 +28,7 @@ export default async function Header() {
       <section className="hidden lg:flex lg:items-center lg:gap-6">
         {user ? (
           <>
-            <p>Log Out</p>
+            <UserAccountNav user={user} />
             <span className="mx-4 h-6 w-px bg-border" aria-hidden="true" />
             <Cart />
           </>
