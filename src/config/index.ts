@@ -1,166 +1,44 @@
 export const PRODUCT_CATEGORIES = [
   {
-    label: "Men's Clothing",
-    value: "mens_clothing",
+    label: "UI Kits",
+    value: "ui_kits" as const,
     featured: [
       {
-        name: "Ver Todo",
-        href: "#",
+        name: "Editor picks",
+        href: `/products?category=ui_kits`,
+        imageSrc: "/nav/ui-kits/mixed.jpg",
       },
       {
-        name: "Remeras",
-        href: "#",
+        name: "New Arrivals",
+        href: "/products?category=ui_kits&sort=desc",
+        imageSrc: "/nav/ui-kits/blue.jpg",
       },
       {
-        name: "Shorts",
-        href: "#",
-      },
-      {
-        name: "Trajes de Baño",
-        href: "#",
-      },
-      {
-        name: "Camisas",
-        href: "#",
-      },
-      {
-        name: "Pantalones",
-        href: "#",
-      },
-      {
-        name: "Buzos",
-        href: "#",
-      },
-      {
-        name: "Ropa Formal",
-        href: "#",
-      },
-      {
-        name: "Básicos",
-        href: "#",
-      },
-      {
-        name: "Jeans",
-        href: "#",
-      },
-      {
-        name: "Joggers",
-        href: "#",
-      },
-      {
-        name: "Ropa Deportiva",
-        href: "#",
-      },
-      {
-        name: "Ropa Interior",
-        href: "#",
-      },
-      {
-        name: "Pijamas",
-        href: "#",
-      },
-      {
-        name: "Medias",
-        href: "#",
-      },
-      {
-        name: "Accesorios",
-        href: "#",
-      },
-      {
-        name: "Zapatos",
-        href: "#",
-      },
-      {
-        name: "Sacos y Sweaters",
-        href: "#",
-      },
-      {
-        name: "Camperas",
-        href: "#",
+        name: "Bestsellers",
+        href: "/products?category=ui_kits",
+        imageSrc: "/nav/ui-kits/purple.jpg",
       },
     ],
-  } as const,
+  },
   {
-    label: "Women's Clothing",
-    value: "womens_clothing",
+    label: "Icons",
+    value: "icons" as const,
     featured: [
       {
-        name: "Ver Todo",
-        href: "#",
+        name: "Favorite Icon Picks",
+        href: `/products?category=icons`,
+        imageSrc: "/nav/icons/picks.jpg",
       },
       {
-        name: "Trajes de Baño y Bikinis",
-        href: "#",
+        name: "New Arrivals",
+        href: "/products?category=icons&sort=desc",
+        imageSrc: "/nav/icons/new.jpg",
       },
       {
-        name: "Básicos",
-        href: "#",
-      },
-      {
-        name: "Vestidos",
-        href: "#",
-      },
-      {
-        name: "Remeras y Tops",
-        href: "#",
-      },
-      {
-        name: "Blusas y Camisas",
-        href: "#",
-      },
-      {
-        name: "Shorts",
-        href: "#",
-      },
-      {
-        name: "Pantalones",
-        href: "#",
-      },
-      {
-        name: "Blazers",
-        href: "#",
-      },
-      {
-        name: "Jeans",
-        href: "#",
-      },
-      {
-        name: "Polleras",
-        href: "#",
-      },
-      {
-        name: "Ropa Interior y Lencería",
-        href: "#",
-      },
-      {
-        name: "Medias y Pantys",
-        href: "#",
-      },
-      {
-        name: "Buzos",
-        href: "#",
-      },
-      {
-        name: "Sacos y Sweaters",
-        href: "#",
-      },
-      {
-        name: "Camperas y Abrigos",
-        href: "#",
-      },
-      {
-        name: "Pijamas",
-        href: "#",
-      },
-      {
-        name: "Ropa Deportiva",
-        href: "#",
-      },
-      {
-        name: "Ropa de Maternidad",
-        href: "#",
+        name: "Bestselling Icons",
+        href: "/products?category=icons",
+        imageSrc: "/nav/icons/bestsellers.jpg",
       },
     ],
-  } as const,
+  },
 ];
