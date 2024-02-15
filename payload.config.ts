@@ -6,12 +6,14 @@ import path from "path";
 import { Products } from "./src/collections/Products/Products";
 import { Users } from "./src/collections/Users";
 import { Media } from "./src/collections/Media";
+import { ProductFiles } from "./src/collections/ProductFile";
+import { Orders } from "./src/collections/Orders";
 import dotenv from "dotenv";
 dotenv.config();
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "", // TODO: CHECK LATER
-  collections: [Users, Products, Media],
+  collections: [Users, Products, Media, ProductFiles, Orders],
   routes: {
     admin: "/sell",
   },

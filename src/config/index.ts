@@ -4,19 +4,19 @@ export const PRODUCT_CATEGORIES = [
     value: "ui_kits" as const,
     featured: [
       {
-        name: "Editor picks",
+        name: "Black",
         href: `/products?category=ui_kits`,
-        imageSrc: "/nav/ui-kits/mixed.jpg",
+        imageSrc: "/nav/ui-kits/black.png",
       },
       {
-        name: "New Arrivals",
+        name: "Blue",
         href: "/products?category=ui_kits&sort=desc",
-        imageSrc: "/nav/ui-kits/blue.jpg",
+        imageSrc: "/nav/ui-kits/blue.png",
       },
       {
-        name: "Bestsellers",
+        name: "Green",
         href: "/products?category=ui_kits",
-        imageSrc: "/nav/ui-kits/purple.jpg",
+        imageSrc: "/nav/ui-kits/green.png",
       },
     ],
   },
@@ -25,19 +25,24 @@ export const PRODUCT_CATEGORIES = [
     value: "icons" as const,
     featured: [
       {
-        name: "Favorite Icon Picks",
+        name: "Solid",
         href: `/products?category=icons`,
-        imageSrc: "/nav/icons/picks.jpg",
+        imageSrc: "/nav/icons/solid.png",
       },
       {
-        name: "New Arrivals",
+        name: "Regular",
         href: "/products?category=icons&sort=desc",
-        imageSrc: "/nav/icons/new.jpg",
+        imageSrc: "/nav/icons/regular.png",
       },
       {
-        name: "Bestselling Icons",
+        name: "Light",
         href: "/products?category=icons",
-        imageSrc: "/nav/icons/bestsellers.jpg",
+        imageSrc: "/nav/icons/light.png",
+      },
+      {
+        name: "Thin",
+        href: "/products?category=icons",
+        imageSrc: "/nav/icons/thin.png",
       },
     ],
   },
